@@ -23,7 +23,22 @@ print(result)
 
 # transfer
 recipient = 'your recipient ar address'
-message_id, result =ao.send_and_get(signer, ar, '', {'Action':'Transfer', 'Recipient':recipient, 'Quantity':'1000000000000'})
+message_id, result = ao.send_and_get(signer, ar, '', {'Action':'Transfer', 'Recipient':recipient, 'Quantity':'1000000000000'})
 print(message_id)
 print(result)
+
+# swap on permaswap(ao)
+
+# ar-llama pool, 
+pool = 'aGF7BWB_9B924sBXoirHy4KOceoCX72B77yh1nllMPA'
+
+# swap 0.01 ar for llama
+message_id, result = ao.send_and_get(signer, ar, '', 
+    {'Action':'Transfer', 'Recipient':pool, 'Quantity':'10000000000', 'X-PS-For':'Swap', 'X-PS-MinAmountOut':'1000000000000'}
+)
+
+# checkout out swap result, permaswap use message_id as order_id.
+result = ao.dry_run(signer, pool, '', {'Action':'GetOrder', 'OrderId':message_id})
+print(result)
+
 ```
