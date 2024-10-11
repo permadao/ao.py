@@ -19,7 +19,7 @@ def send_message(singer, pid, anchor, tags, data='', mu=MU, timeout=5):
     return b.id, requests.post(mu, data=b.binary, headers={'Content-Type': 'application/octet-stream'}, timeout=timeout).json()
 
 
-def dry_run(signer, pid, anchor, tags, data='', cu=CU, timeout=30):
+def dry_run(pid, anchor, tags, data='', cu=CU, timeout=30):
     default_tags = {
         'Data-Protocol': 'ao',
         'Variant': 'ao.TN.1',
@@ -32,7 +32,7 @@ def dry_run(signer, pid, anchor, tags, data='', cu=CU, timeout=30):
     url = '%s/dry-run?process-id=%s' % (cu, pid)
     payload = {
         'Target': pid,
-        'Owner': signer.address,
+        'Owner': 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA',
         'Anchor': anchor,
         'Data': data,
         'Tags': tags,
