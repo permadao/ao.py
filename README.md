@@ -18,7 +18,7 @@ ar = 'xU9zFkq3X2ZQ6olwNVvr1vUWIjc3kXTWr7xKQD6dh10'
 signer = ao.ARSigner('your ar wallet json file')
 
 # use dry run to get your cred balance
-result = ao.dry_run(signer, ar, '', {'Action':'Balance'})
+result = ao.dry_run(ar, '', {'Action':'Balance'})
 print(result)
 
 # transfer
@@ -38,7 +38,7 @@ message_id, result = ao.send_and_get(signer, ar, '',
 )
 
 # checkout out swap result, permaswap use message_id as order_id.
-result = ao.dry_run(signer, pool, '', {'Action':'GetOrder', 'OrderId':message_id})
+result = ao.dry_run(pool, '', {'Action':'GetOrder', 'OrderId':message_id})
 print(result)
 
 ```
