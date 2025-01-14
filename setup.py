@@ -2,7 +2,7 @@ import setuptools
 
 setuptools.setup(
     name='aodotpy',
-    version='0.2.2',
+    version='0.2.3',
     packages=['ao',],
     license='MIT',
     description = 'Python wrappers for ao',
@@ -12,7 +12,7 @@ setuptools.setup(
     author_email = 'xiaojay@gmail.com',
     install_requires=['requests', 'python-jose', 'arweave-python-client', 'arseeding'],
     url = 'https://github.com/permadao/ao.py',
-    download_url = 'https://github.com/xiaojay/permadao/archive/refs/tags/v0.2.2.tar.gz',
+    download_url = 'https://github.com/xiaojay/permadao/archive/refs/tags/v0.2.3.tar.gz',
     classifiers=[
         "Programming Language :: Python :: 3",
         "Programming Language :: Python :: 2",
