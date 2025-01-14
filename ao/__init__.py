@@ -14,11 +14,15 @@ def get_tags(nv):
     return tags
 
 def process_msg(msg):
+    if not msg.get('Tags'):
+        return msg
     tags = get_tags(msg['Tags'])
     msg['Tags'] = tags
     return msg
 
 def process_result(res):
+    if not res.get('Messages'):
+        return res
     msgs = res['Messages']
     for msg in msgs:
         msg = process_msg(msg)
