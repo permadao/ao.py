@@ -43,7 +43,7 @@ def send_message(singer, pid, anchor, tags, data='', mu=MU, timeout=5):
     return b.id, res
 
 
-def dry_run(pid, anchor, tags, data='', cu=CU, timeout=30):
+def dry_run(pid, anchor, tags, data='', cu=CU, timeout=30, owner='AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA'):
     default_tags = {
         'Data-Protocol': 'ao',
         'Variant': 'ao.TN.1',
@@ -56,7 +56,7 @@ def dry_run(pid, anchor, tags, data='', cu=CU, timeout=30):
     url = '%s/dry-run?process-id=%s' % (cu, pid)
     payload = {
         'Target': pid,
-        'Owner': 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA',
+        'Owner': owner,
         'Anchor': anchor,
         'Data': data,
         'Tags': tags,
